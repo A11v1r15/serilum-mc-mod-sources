@@ -6,7 +6,7 @@ logoFile="icon.png"
 
 [[mods]]
 modId="healingsoup"
-version="4.3"
+version="4.4"
 displayName="Healing Soup"
 displayURL="https://curseforge.com/minecraft/mc-mods/healing-soup"
 authors="Rick South"
@@ -22,7 +22,7 @@ If you would like to contribute too, check out https://ricksouth.com/donate. App
 [[dependencies.healingsoup]]
     modId="collective"
     mandatory=true
-    versionRange="[7.3,)"
+    versionRange="[7.7,)"
     ordering="NONE"
     side="BOTH"
 

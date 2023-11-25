@@ -31,18 +31,17 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.neoforged.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import net.neoforged.neoforge.registries.ForgeRegistries;
-import net.neoforged.neoforge.registries.RegistryObject;
 
 @Mod(Reference.MOD_ID)
 public class ModNeoForge {
 
-	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Reference.MOD_ID);
+	private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Reference.MOD_ID);
 
-	public static final RegistryObject<Item> MUSHROOM_SOUP_ITEM = ITEMS.register("mushroom_soup", () -> new BowlFoodItem((new Item.Properties()).stacksTo(1).food(SoupFoods.MUSHROOM_SOUP)));
-	public static final RegistryObject<Item> CACTUS_SOUP_ITEM = ITEMS.register("cactus_soup", () -> new BowlFoodItem((new Item.Properties()).stacksTo(1).food(SoupFoods.CACTUS_SOUP)));
-	public static final RegistryObject<Item> CHOCOLATE_MILK_ITEM = ITEMS.register("chocolate_milk", () -> new BowlFoodItem((new Item.Properties()).stacksTo(1).food(SoupFoods.CHOCOLATE_MILK)));
+	public static final DeferredItem<Item> MUSHROOM_SOUP_ITEM = ITEMS.register("mushroom_soup", () -> new BowlFoodItem((new Item.Properties()).stacksTo(1).food(SoupFoods.MUSHROOM_SOUP)));
+	public static final DeferredItem<Item> CACTUS_SOUP_ITEM = ITEMS.register("cactus_soup", () -> new BowlFoodItem((new Item.Properties()).stacksTo(1).food(SoupFoods.CACTUS_SOUP)));
+	public static final DeferredItem<Item> CHOCOLATE_MILK_ITEM = ITEMS.register("chocolate_milk", () -> new BowlFoodItem((new Item.Properties()).stacksTo(1).food(SoupFoods.CHOCOLATE_MILK)));
 
 	
 	public ModNeoForge() {

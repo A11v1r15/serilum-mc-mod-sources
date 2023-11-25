@@ -6,7 +6,7 @@ logoFile="icon.png"
 
 [[mods]]
 modId="cyclepaintings"
-version="3.3"
+version="3.4"
 displayName="Cycle Paintings"
 displayURL="https://curseforge.com/minecraft/mc-mods/cycle-paintings"
 authors="Rick South"
@@ -22,7 +22,7 @@ If you would like to contribute too, check out https://ricksouth.com/donate. App
 [[dependencies.cyclepaintings]]
     modId="collective"
     mandatory=true
-    versionRange="[7.3,)"
+    versionRange="[7.7,)"
     ordering="NONE"
     side="BOTH"
 

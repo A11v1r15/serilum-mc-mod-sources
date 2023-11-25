@@ -1,9 +1,9 @@
 accessWidener	v1 named
-accessible field net/minecraft/client/Options gamma Lnet/minecraft/client/OptionInstance;
-mutable field net/minecraft/client/Options gamma Lnet/minecraft/client/OptionInstance;
 accessible class net/minecraft/server/commands/TeleportCommand$LookAt
 accessible field net/minecraft/client/OptionInstance value Ljava/lang/Object;
 mutable field net/minecraft/client/OptionInstance value Ljava/lang/Object;
+accessible field net/minecraft/client/Options gamma Lnet/minecraft/client/OptionInstance;
+mutable field net/minecraft/client/Options gamma Lnet/minecraft/client/OptionInstance;
 accessible field net/minecraft/world/entity/monster/Creeper DATA_IS_POWERED Lnet/minecraft/network/syncher/EntityDataAccessor;
 accessible method net/minecraft/world/entity/Entity setSharedFlag (IZ)V
 accessible field net/minecraft/world/item/trading/MerchantOffer maxUses I

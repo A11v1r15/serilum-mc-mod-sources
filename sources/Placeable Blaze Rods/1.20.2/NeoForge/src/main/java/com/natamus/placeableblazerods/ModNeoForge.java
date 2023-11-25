@@ -24,21 +24,20 @@ import com.natamus.placeableblazerods.util.Reference;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.neoforged.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import net.neoforged.neoforge.registries.ForgeRegistries;
-import net.neoforged.neoforge.registries.RegistryObject;
 
 @Mod(Reference.MOD_ID)
 public class ModNeoForge {
 
-	public static final DeferredRegister<Block> BLOCKS_REGISTER = DeferredRegister.create(ForgeRegistries.BLOCKS, Reference.MOD_ID);
+	private static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(Reference.MOD_ID);
 
-	public static final RegistryObject<Block> BLAZE_ROD_BLOCK_OBJECT = BLOCKS_REGISTER.register("blaze_rod", () -> new BlazeRodBlock(BlockBehaviour.Properties.of().strength(0.0F).lightLevel((p_235454_0_) -> { return 14; }).sound(SoundType.WOOD).noOcclusion()));
+	public static final DeferredBlock<Block> BLAZE_ROD_BLOCK_OBJECT = BLOCKS.register("blaze_rod", () -> new BlazeRodBlock(BlockBehaviour.Properties.of().strength(0.0F).lightLevel((p_235454_0_) -> { return 14; }).sound(SoundType.WOOD).noOcclusion()));
 
 	public static Block BLAZE_ROD_BLOCK;
 	
@@ -46,7 +45,7 @@ public class ModNeoForge {
 		IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 		modEventBus.addListener(this::loadComplete);
 
-		BLOCKS_REGISTER.register(modEventBus);
+		BLOCKS.register(modEventBus);
 
 		setGlobalConstants();
 		ModCommon.init();

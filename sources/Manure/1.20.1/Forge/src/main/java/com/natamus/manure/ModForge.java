@@ -23,8 +23,10 @@ import com.natamus.manure.forge.events.ForgeManureDropEvent;
 import com.natamus.manure.items.ManureItems;
 import com.natamus.manure.util.Reference;
 import net.minecraft.world.item.BoneMealItem;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
@@ -44,6 +46,7 @@ public class ModForge {
 	public ModForge() {
 		IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 		modEventBus.addListener(this::loadComplete);
+		modEventBus.addListener(this::buildContents);
 
 		ITEMS.register(modEventBus);
 
@@ -62,6 +65,12 @@ public class ModForge {
 
 		MinecraftForge.EVENT_BUS.register(new ForgeManureDropEvent());
 	}
+
+    private void buildContents(BuildCreativeModeTabContentsEvent e) {
+        if (e.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
+            e.accept(ManureItems.MANURE);
+        }
+    }
 
 	private static void setGlobalConstants() {
 

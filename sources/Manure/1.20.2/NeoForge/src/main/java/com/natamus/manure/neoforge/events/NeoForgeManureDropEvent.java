@@ -18,18 +18,15 @@ package com.natamus.manure.neoforge.events;
 
 import com.natamus.collective.functions.WorldFunctions;
 import com.natamus.manure.events.ManureDropEvent;
-import com.natamus.manure.items.ManureItems;
 import com.natamus.manure.util.Util;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.Level;
-import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.Mod.EventBusSubscriber;
 import net.neoforged.neoforge.event.TickEvent;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 import net.neoforged.neoforge.event.entity.EntityLeaveLevelEvent;
 import net.neoforged.neoforge.event.level.LevelEvent;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.Mod.EventBusSubscriber;
 
 @EventBusSubscriber
 public class NeoForgeManureDropEvent {
@@ -41,13 +38,6 @@ public class NeoForgeManureDropEvent {
 		}
 
 		Util.attemptBlacklistProcessing(level);
-	}
-
-	@SubscribeEvent
-	public static void buildContents(BuildCreativeModeTabContentsEvent e) {
-		if (e.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
-			e.accept(ManureItems.MANURE);
-		}
 	}
 
 	@SubscribeEvent

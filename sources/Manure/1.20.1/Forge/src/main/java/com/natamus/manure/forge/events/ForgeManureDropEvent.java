@@ -18,12 +18,9 @@ package com.natamus.manure.forge.events;
 
 import com.natamus.collective.functions.WorldFunctions;
 import com.natamus.manure.events.ManureDropEvent;
-import com.natamus.manure.items.ManureItems;
 import com.natamus.manure.util.Util;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.EntityLeaveLevelEvent;
@@ -41,13 +38,6 @@ public class ForgeManureDropEvent {
         }
 
         Util.attemptBlacklistProcessing(level);
-    }
-
-    @SubscribeEvent
-    public void buildContents(BuildCreativeModeTabContentsEvent e) {
-        if (e.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
-            e.accept(ManureItems.MANURE);
-        }
     }
 
     @SubscribeEvent
