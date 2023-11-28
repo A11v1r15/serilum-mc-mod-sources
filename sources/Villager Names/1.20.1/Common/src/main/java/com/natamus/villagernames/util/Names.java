@@ -77,7 +77,12 @@ public class Names {
 				villagerNameList.add(randomFromList(customVillagerNames));
 			}
 			else {
-				return randomFromList(customVillagerNames);
+				String name = randomFromList(customVillagerNames);
+
+				if (ConfigHandler.shouldCapitalizeNames) {
+					return StringFunctions.capitalizeEveryWord(name);
+				}
+				return name;
 			}
 		}
 
@@ -95,13 +100,18 @@ public class Names {
 			return "";
 		}
 
-		return StringFunctions.capitalizeEveryWord(randomFromList(villagerNameList));
+		String name = randomFromList(villagerNameList);
+
+		if (ConfigHandler.shouldCapitalizeNames) {
+			return StringFunctions.capitalizeEveryWord(name);
+		}
+		return name;
 	}
 
 	private static String randomFromList(List<String> list) {
 		if (list.size() == 0) {
 			return "";
 		}
-		return list.get(GlobalVariables.random.nextInt(list.size())).toLowerCase();
+		return list.get(GlobalVariables.random.nextInt(list.size()));
 	}
 }

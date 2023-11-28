@@ -34,6 +34,7 @@ public class ConfigHandler extends DuskConfig {
 	@Entry public static boolean showProfessionOnTradeScreen = true;
 	@Entry public static boolean switchNameAndProfessionTradeScreen = false;
 	@Entry public static boolean hideMerchantLevelTradeScreen = false;
+	@Entry public static boolean shouldCapitalizeNames = true;
 
 	public static void initConfig() {
 		configMetaData.put("useCustomNames", Arrays.asList(
@@ -59,6 +60,9 @@ public class ConfigHandler extends DuskConfig {
 		));
 		configMetaData.put("hideMerchantLevelTradeScreen", Arrays.asList(
 			"Whether the merchant level (novice, apprentice etc.) should be hidden on the trade screen."
+		));
+		configMetaData.put("shouldCapitalizeNames", Arrays.asList(
+			"If enabled, the mod capitalizes each word in the custom name list."
 		));
 
 		DuskConfig.init(Reference.NAME, Reference.MOD_ID, ConfigHandler.class);

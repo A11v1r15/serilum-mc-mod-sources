@@ -6,7 +6,7 @@ logoFile="icon.png"
 
 [[mods]]
 modId="grindstonesharpertools"
-version="3.2"
+version="3.3"
 displayName="Grindstone Sharper Tools"
 displayURL="https://curseforge.com/minecraft/mc-mods/grindstone-sharper-tools"
 authors="Rick South"
@@ -22,7 +22,7 @@ If you would like to contribute too, check out https://ricksouth.com/donate. App
 [[dependencies.grindstonesharpertools]]
     modId="collective"
     mandatory=true
-    versionRange="[7.3,)"
+    versionRange="[7.8,)"
     ordering="NONE"
     side="BOTH"
 

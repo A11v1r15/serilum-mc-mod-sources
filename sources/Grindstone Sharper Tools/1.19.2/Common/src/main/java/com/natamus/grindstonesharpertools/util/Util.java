@@ -38,11 +38,12 @@ public class Util {
 
 		flatList.removeIf(component -> component.toString().contains(prefix));
 		if (uses > 0) {
-			Style last = flatList.get(flatList.size() - 1).getStyle();
-			flatList.add(
-					Component.literal(" " + ConfigHandler.nameUsesPrefix
-							+ uses + ConfigHandler.nameUsesSuffix).withStyle(last)
-			);
+			Style last = Style.EMPTY;
+			if (flatList.size() > 0) {
+				last = flatList.get(flatList.size() - 1).getStyle();
+			}
+
+			flatList.add(Component.literal(" " + ConfigHandler.nameUsesPrefix + uses + ConfigHandler.nameUsesSuffix).withStyle(last));
 		}
 
 		MutableComponent mutableComponent = MutableComponent.create(ComponentContents.EMPTY);
