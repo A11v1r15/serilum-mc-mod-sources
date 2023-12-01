@@ -60,7 +60,7 @@ public class HeadFunctions {
 		return null;
 	}
 	
-	public static ItemStack getTexturedHead(String headname, String texture, String oldid, Integer amount) {
+	public static ItemStack getTexturedHead(String headname, String texture, String oldid, String sound, Integer amount) {
 		ItemStack texturedhead = new ItemStack(Items.PLAYER_HEAD, amount);
 		
 		List<Integer> intarray = UUIDFunctions.oldIdToIntArray(oldid);
@@ -75,12 +75,17 @@ public class HeadFunctions {
 		textures.add(tex);
 
 		properties.put("textures", textures);
+		if (sound != "") properties.put("note_block_sound", sound);
 		skullOwner.put("Properties", properties);
 		texturedhead.addTagElement("SkullOwner", skullOwner);
 		
 		Component tcname = Component.literal(headname);
 		texturedhead.setHoverName(tcname);		
 		return texturedhead;
+	}
+
+	public static ItemStack getTexturedHead(String headname, String texture, String oldid, Integer amount) {
+		return getTexturedHead(headname, texture, oldid, "", amount);
 	}
 	
 	public static boolean hasStandardHead(String mobname) {

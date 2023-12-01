@@ -50,6 +50,7 @@ public class MobHeads {
 	
 	public static ItemStack getMobHead(String mobname, Integer amount) {
 		Pair<String, String> mobdata = HeadData.headdata.get(mobname);
+		String mobsound = HeadData.headsound.get(mobname) == null ? "" : HeadData.headsound.get(mobname);
 		if (mobdata == null) {
 			return null;
 		}
@@ -58,7 +59,7 @@ public class MobHeads {
 		String oldid = mobdata.getFirst();
 		String texture = mobdata.getSecond();
 
-		return HeadFunctions.getTexturedHead(headname, texture, oldid, amount);
+		return HeadFunctions.getTexturedHead(headname, texture, oldid, mobsound, amount);
 	}
 	
 	public static ItemStack getStandardHead(String headname) {
